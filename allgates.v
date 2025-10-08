@@ -18,14 +18,14 @@ endmodule
 
 module testBench;
 reg A,B;	// register the input lines
-wire Y;			// declare the output lines
+wire Y_and;			// declare the output lines
+wire Y_or, Y_nand;
 
 //INSTATNTIATE the modules
 
-andGate instance0(A,B,Y);
-orGate instance1(A,B,Y);
-notGate instance2(A,Y);
-nandGate instance3(A,B,Y);
+andGate instance0(A,B,Y_and);   
+orGate instance1(A,B,Y_or);
+nandGate instance3(A,B,Y_nand);
 
 initial begin
 $dumpfile("orgate.vcd");
