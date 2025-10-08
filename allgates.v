@@ -30,8 +30,8 @@ nandGate instance3(A,B,Y_nand);
 initial begin
 $dumpfile("orgate.vcd");
 $dumpvars(1);
-$display("OR gate Realisation \nA B Y");
-$monitor(A," ",B," ",Y);
+$display("A B | AND OR NOT NAND");
+$monitor("%b %b | %b   %b  %b   %b", A, B, Y_and, Y_or, Y_not, Y_nand);
 A = 0; B = 0; #1;
 A = 0; B = 1; #2;
 A = 1; B = 0; #3;
