@@ -12,7 +12,7 @@ module TestBench;
 	halfAdder instance0(.A(A),.B(B),.C_out(C_out),.S(S));
 	initial begin;
 	$dumpfile("brats.vcd");
-	$dumpvars(TestBench,0);
+	$dumpvars(0,TestBench);
 	$display("A | B | C_out | S ");
 	$monitor("%d | %d |   %d | %d ",A,B,C_out,S);
 	#10; A = 0; B = 0;
