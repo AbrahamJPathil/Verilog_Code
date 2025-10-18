@@ -1,4 +1,4 @@
-module halfAdder(input A,B output C_out,S);
+module halfAdder(input A,B,output C_out,S);
 	wire and1,and2;
 	and(and1,A,~B);
 	and(and2,~A,B);
