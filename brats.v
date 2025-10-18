@@ -11,11 +11,11 @@ module TestBench;
 	wire C_out,S;
 	halfAdder instance0(.A(A),.B(B),.C_out(C_out),.S(S));
 	initial begin
+	A = 0; B = 0;
 	$dumpfile("brats.vcd");
 	$dumpvars(0,TestBench);
 	$display("A | B | C_out | S ");
 	$monitor("%d | %d |   %d | %d ",A,B,C_out,S);
-	#10; A = 0; B = 0;
 	#10; A = 0; B = 1;
 	#10; A = 1; B = 0;
 	#10; A = 1; B = 1;
