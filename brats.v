@@ -33,6 +33,7 @@ module TestBenchHA;
 	#10; A = 0; B = 1;
 	#10; A = 1; B = 0;
 	#10; A = 1; B = 1;
+	$monitoroff
 	$display(" // Truth Table for Full Adder || ");
 	$display("A | B | C_in | C_out | S ");
 	$monitor("%d | %d | %d | %d | %d",A,B,C,D,E);
