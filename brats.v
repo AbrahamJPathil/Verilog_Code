@@ -10,7 +10,7 @@ module TestBench;
 	reg A,B;
 	wire C_out,S;
 	halfAdder instance0(.A(A),.B(B),.C_out(C_out),.S(S));
-	initial begin;
+	initial begin
 	$dumpfile("brats.vcd");
 	$dumpvars(0,TestBench);
 	$display("A | B | C_out | S ");
