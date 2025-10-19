@@ -18,8 +18,8 @@ module TestBench;
 	$dumpvars(0,TestBench);
 	L0 = 0;L1 = 0;L2 = 0;L3 = 0;
 	S0 = 0; S1 = 0;
-	$display("L0 | L1 | L2 | L3 | S1 | S0");
-	$monitor("%d | %d | %d | %d | %d | %d ",L0,L1,L2,L3,S1,S0);
+	$display("L0 | L1 | L2 | L3 | S1 | S0 | S ");
+	$monitor("%d | %d | %d | %d | %d | %d | %d ",L0,L1,L2,L3,S1,S0,S);
 	#10; L0 = 1;L1 = 0;L2 = 0;L3 = 0; S1 = 0; S0 = 0;
 	
 	#10; L0 = 0;L1 = 0;L2 = 0;L3 = 0; S1 = 0; S0 = 1;
