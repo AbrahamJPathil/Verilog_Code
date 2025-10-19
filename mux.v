@@ -10,9 +10,12 @@ module _4x1Mux(input L0,L1,L2,L3,S1,S0, output S);
 endmodule
 
 module _4x1Demux(input I,S1,S0, output L0,L1,L2,L3);
-	and(L0,I,~S1,~S0);
-	and(L1,I,~S1,S0);
-	and(L2,I,S1,~S0);
+	wire not0, not1;
+	not(not0,S0);
+	not(not1,S1);
+	and(L0,I,not1,not0);
+	and(L1,I,not1,S0);
+	and(L2,I,S1,not0);
 	and(L3,I,S1,S0);
 endmodule
 
@@ -48,7 +51,7 @@ module TestBench;
 	S1_ = 0; S0_ = 0; I = 1;
 	$display("|| Truth Table for 4x1 De-MUX ||");
 	$display("I | S1 | S0 | L0 | L1 | L2 | L3 ");
-	$monitor("%d | %d | %d | %d | %d | %d | %d ",I,S1_,S0_,L0,L1,L2,L3);
+	$monitor("%d | %d | %d | %d | %d | %d | %d ",I,S1_,S0_,A,B,C,D);
 	$monitoron;
 	#10; S1_ = 0; S0_ = 1; I = 1;
 	#10; S1_ = 1; S0_ = 0; I = 1;
