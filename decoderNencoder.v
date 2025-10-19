@@ -11,3 +11,12 @@ module _2x4Decoder(input S1,S0, output L0,L1,L2,L3);
 	and(L3,S1,S0);
 endmodule
 	
+module _4x2Encoder(input L0,L1,L2,L3, output S1,S0);
+	wire and1,and2;
+	and(and1,~L3,L2,~L1,~L0);
+	and(and2,L3,~L2,~L1,~L0);
+	or(S1,and1,and2);
+	wire and3,and4;
+	and(and3,~L3,~L2,L1,~L0);
+	or(S0,and2,and3);
+endmodule
