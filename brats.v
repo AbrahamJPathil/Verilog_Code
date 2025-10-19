@@ -38,6 +38,9 @@ module TestBenchHA;
 	fullAdder instance1(.A(A),.B(B),.C_in(C),.C_out(D),.S(E));
 	wire F,G;
 	halfSubtractor instance2(.A(A),.B(B),.B_in(F),.D(G));
+	reg B_in;
+	wire B_out, Diff;
+	fullSubtractor instance3(.A(A),.B(B),.B_in(B_in),.B_out(B_out),.D(Diff));
 	initial begin
 	A = 0; B = 0;
 	$dumpfile("brats.vcd");
@@ -73,8 +76,21 @@ module TestBenchHA;
 	#10; A = 1; B = 0;
 	#10; A = 1; B = 1;
 	#10; $monitoroff;
+	A = 0; B = 0; B_in = 0;
+	$display(" // Truth Table for Full Subtractor || ");
+	$display("A | B | B_in | B_out | D ");
+	$monitor("%d | %d | %d | %d | %d ",A,B,B_in,B_out,Diff);
+	$monitoron;
+	#10; A = 0; B = 0; B_in = 0;
+	#10; A = 0; B = 0; B_in = 1;
+	#10; A = 0; B = 1; B_in = 0;
+	#10; A = 0; B = 1; B_in = 1;
 	
-	
+	#10; A = 1; B = 0; B_in = 0;
+	#10; A = 1; B = 0; B_in = 1;
+	#10; A = 1; B = 1; B_in = 0;
+	#10; A = 1; B = 1; B_in = 1;
+	#10; $monitoroff;
 	$finish;		// ends the simulation at all initial blocks, in all modules, enters cleanup mode
 	end	
 endmodule	
