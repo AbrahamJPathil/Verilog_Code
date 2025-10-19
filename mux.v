@@ -23,7 +23,7 @@ module TestBench;
 	
 	reg I,S1_,S0_;
 	wire A,B,C,D;
-	_4x1Demux(.I(I),.S1(S1_),.S0(S0_),.L0(A),.L1(B),.L2(C),.L3(D));
+	_4x1Demux instance1(.I(I),.S1(S1_),.S0(S0_),.L0(A),.L1(B),.L2(C),.L3(D));
 	
 	initial begin
 	$dumpfile("mux.vcd");
@@ -52,7 +52,8 @@ module TestBench;
 	$monitoron;
 	#10; S1_ = 0; S0_ = 1; I = 1;
 	#10; S1_ = 1; S0_ = 0; I = 1;
-	#10; S1_ = 1; S0_ = 1; I = 1;			
+	#10; S1_ = 1; S0_ = 1; I = 1;
+	#10; $monitoroff;			
 	$finish;
 	end
 endmodule
