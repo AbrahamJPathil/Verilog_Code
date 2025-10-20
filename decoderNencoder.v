@@ -47,7 +47,7 @@ module TestBench;
 	$monitoron;
 	#10; L3_ = 0; L2_ = 0; L1_ = 1; L0_ = 0;
 	#10; L3_ = 0; L2_ = 1; L1_ = 0; L0_ = 0;
-	#10; L3_ = 1; L2_ = 0; L1_ = 1; L0_ = 0;
+	#10; L3_ = 1; L2_ = 0; L1_ = 0; L0_ = 0;
 	#10; $monitoroff;
 	$finish;
 	end
